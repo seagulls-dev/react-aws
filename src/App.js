@@ -19,7 +19,7 @@ function App() {
         >
           Learn React wow
         </a>
-        <p>This shows how CI works</p>
+        <p>This shows how CI works --- why failed?</p>
       </header>
     </div>
   );
