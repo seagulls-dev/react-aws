@@ -13,11 +13,11 @@ phases:
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
-      - docker build -t $REPOSITORY_URI .
+      - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
-      - docker push $REPOSITORY_URI
+      # - docker push $REPOSITORY_URI
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - printf '[{"name":"react-aws3-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
