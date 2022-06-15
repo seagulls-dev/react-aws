@@ -8,7 +8,8 @@ phases:
       # - IMAGE_TAG=${COMMIT_HASH:=latest}
 
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 239166870268.dkr.ecr.us-west-2.amazonaws.com
-      - REPOSITORY_URI=239166870268.dkr.ecr.us-west-2.amazonaws.com/react-aws3:latest
+      # - REPOSITORY_URI=239166870268.dkr.ecr.us-west-2.amazonaws.com/react-aws3:latest
+      - REPOSITORY_URI=react-aws3:latest
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
